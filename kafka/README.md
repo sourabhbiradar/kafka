@@ -50,4 +50,4 @@ docker-compose up -d
 
 go run producer.go
 
-ggo run consumer.go
+go run consumer.go
