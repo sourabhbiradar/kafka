@@ -1,0 +1,15 @@
+version: '2'
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper:3.4.6
+    ports:
+     - "2181:2181"
+  kafka:
+    image: wurstmeister/kafka:2.12-2.2.1
+    ports:
+     - "29987:29987"
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:29987
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    volumes:
+     - /var/run/docker.sock:/var/run/docker.sock
